@@ -13,7 +13,7 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
  */
 enum ParticleJSReferencePool implements ReferencePool
 {
-	ParticlesJS(new JavascriptReference("ParticlesJS", 1.6, "bower_components/particles.js/particles.js",RequirementsPriority.Top_Shelf),
+	ParticlesJS(new JavascriptReference("ParticlesJS", 1.6, "bower_components/particles.js/particles.js", RequirementsPriority.Top_Shelf),
 	            null);
 	/**
 	 * Any sub data
@@ -21,23 +21,15 @@ enum ParticleJSReferencePool implements ReferencePool
 	private String data;
 	private JavascriptReference javaScriptReference;
 	private CSSReference cssReference;
-	
+
 	/**
 	 * A new AngularSlimScrollReferencePool
 	 */
 	ParticleJSReferencePool()
 	{
-	
+
 	}
-	
-	/**
-	 * A new AngularSlimScrollReferencePool with data
-	 */
-	ParticleJSReferencePool(String data)
-	{
-	
-	}
-	
+
 	ParticleJSReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
 	{
 		this.javaScriptReference = javaScriptReference;
@@ -51,31 +43,31 @@ enum ParticleJSReferencePool implements ReferencePool
 			this.cssReference.setPriority(RequirementsPriority.DontCare);
 		}
 	}
-	
+
 	@Override
 	public JavascriptReference getJavaScriptReference()
 	{
 		return javaScriptReference;
 	}
-	
+
 	@Override
 	public void setJavaScriptReference(JavascriptReference javaScriptReference)
 	{
 		this.javaScriptReference = javaScriptReference;
 	}
-	
+
 	@Override
 	public CSSReference getCssReference()
 	{
 		return cssReference;
 	}
-	
+
 	@Override
 	public void setCssReference(CSSReference cssReference)
 	{
 		this.cssReference = cssReference;
 	}
-	
+
 	/**
 	 * Returns the name or the data contained within
 	 *

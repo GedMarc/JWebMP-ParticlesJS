@@ -14,26 +14,17 @@ public class ParticlesJS<J extends ParticlesJS<J>> extends DivSimple<J>
 	 * My Feature
 	 */
 	private final ParticlesJSFeature feature;
-	
-	
+
+
 	/**
 	 * Configures the page for this component
 	 */
 	public ParticlesJS()
 	{
-		addFeature(feature = new ParticlesJSFeature(this));
+		feature = new ParticlesJSFeature(this);
+		addFeature(feature);
 	}
-	
-	@Override
-	public void init()
-	{
-		if (!isInitialized())
-		{
-		
-		}
-		super.init();
-	}
-	
+
 	/**
 	 * Returns this feature
 	 *
@@ -43,5 +34,34 @@ public class ParticlesJS<J extends ParticlesJS<J>> extends DivSimple<J>
 	public ParticlesJSFeature getFeature()
 	{
 		return feature;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof ParticlesJS))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ParticlesJS<?> that = (ParticlesJS<?>) o;
+
+		return getFeature().equals(that.getFeature());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getFeature().hashCode();
+		return result;
 	}
 }

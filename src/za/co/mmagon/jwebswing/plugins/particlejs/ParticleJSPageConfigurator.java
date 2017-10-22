@@ -5,9 +5,6 @@ import za.co.mmagon.jwebswing.PageConfigurator;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
 import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
-import za.co.mmagon.logger.LogFactory;
-
-import java.util.logging.Logger;
 
 /**
  * @author Marc Magon
@@ -32,10 +29,9 @@ import java.util.logging.Logger;
 		url = "http://vincentgarreau.com/particles.js/")
 public class ParticleJSPageConfigurator extends PageConfigurator
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = LogFactory.getLog(ParticleJSPageConfigurator.class.getName());
-	
+
 	/*
 	 * Constructs a new ParticleJSPageConfigurator
 	 */
@@ -43,7 +39,7 @@ public class ParticleJSPageConfigurator extends PageConfigurator
 	{
 		//Nothing needed
 	}
-	
+
 	@Override
 	public Page configure(Page page)
 	{
