@@ -7,8 +7,8 @@
     <version>0.0.0_0</version>
     <packaging>jar</packaging>
 
-    <name>Angular Sanitize</name>
-    <description>The JWebSwing implementation for Angular Sanitize</description>
+    <name>Particles.js</name>
+    <description>The JWebSwing implementation for Particle.JS</description>
     <url>https://github.com/GedMarc/JWebswing/ParticlesJS</url>
 
     <issueManagement>
