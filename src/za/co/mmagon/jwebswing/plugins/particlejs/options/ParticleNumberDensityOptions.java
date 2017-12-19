@@ -14,17 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.particlejs;
+package za.co.mmagon.jwebswing.plugins.particlejs.options;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.plugins.particlejs.options.InteractivityOptions;
-import za.co.mmagon.jwebswing.plugins.particlejs.options.ParticleOptions;
-
-import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -43,102 +39,65 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticlesJSOptions<J extends ParticlesJSOptions<J>> extends JavaScriptPart<J>
+public class ParticleNumberDensityOptions<J extends ParticleNumberDensityOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-	private ParticleOptions particles;
-	private InteractivityOptions interactivity;
-	@JsonProperty("retina_detect")
-	private boolean retinaDetect;
+	private Boolean enable;
+	@JsonProperty("value_area")
+	private Integer valueArea;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticlesJSOptions()
+	public ParticleNumberDensityOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the Partcles
+	 * Gets if density is enabled
 	 *
 	 * @return
 	 */
-	@NotNull
-	public ParticleOptions getParticles()
+	public Boolean getEnable()
 	{
-		if (particles == null)
-		{
-			particles = new ParticleOptions();
-		}
-		return particles;
+		return enable;
 	}
 
 	/**
-	 * Sets the particles
+	 * Sets if density is enabled
 	 *
-	 * @param particles
+	 * @param enable
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setParticles(ParticleOptions particles)
+	public J setEnable(Boolean enable)
 	{
-		this.particles = particles;
+		this.enable = enable;
 		return (J) this;
 	}
 
 	/**
-	 * Returns the interactivity
+	 * Gets the value area
 	 *
 	 * @return
 	 */
-	@NotNull
-	public InteractivityOptions getInteractivity()
+	public Integer getValueArea()
 	{
-		if (interactivity == null)
-		{
-			interactivity = new InteractivityOptions();
-		}
-		return interactivity;
+		return valueArea;
 	}
 
 	/**
-	 * Sets the interactivity
+	 * Sets the value area
 	 *
-	 * @param interactivity
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setInteractivity(InteractivityOptions interactivity)
-	{
-		this.interactivity = interactivity;
-		return (J) this;
-	}
-
-	/**
-	 * If retina is detected
+	 * @param valueArea
 	 *
 	 * @return
 	 */
-	public boolean isRetinaDetect()
+	public J setValueArea(Integer valueArea)
 	{
-		return retinaDetect;
-	}
-
-	/**
-	 * Sets if retina detection must be on
-	 *
-	 * @param retinaDetect
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setRetinaDetect(boolean retinaDetect)
-	{
-		this.retinaDetect = retinaDetect;
+		this.valueArea = valueArea;
 		return (J) this;
 	}
 }

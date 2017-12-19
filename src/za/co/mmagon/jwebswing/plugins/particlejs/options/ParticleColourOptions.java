@@ -14,17 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.particlejs;
+package za.co.mmagon.jwebswing.plugins.particlejs.options;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.plugins.particlejs.options.InteractivityOptions;
-import za.co.mmagon.jwebswing.plugins.particlejs.options.ParticleOptions;
-
-import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -43,102 +39,99 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticlesJSOptions<J extends ParticlesJSOptions<J>> extends JavaScriptPart<J>
+public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
-
-	private ParticleOptions particles;
-	private InteractivityOptions interactivity;
-	@JsonProperty("retina_detect")
-	private boolean retinaDetect;
+	/**
+	 * The colour value
+	 */
+	private ColourCSSImpl value;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticlesJSOptions()
+	public ParticleColourOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the Partcles
+	 * Returns the colour value associated
 	 *
 	 * @return
 	 */
-	@NotNull
-	public ParticleOptions getParticles()
+	public ColourCSSImpl getValue()
 	{
-		if (particles == null)
-		{
-			particles = new ParticleOptions();
-		}
-		return particles;
+		return value;
 	}
 
 	/**
-	 * Sets the particles
+	 * Sets the colour
 	 *
-	 * @param particles
+	 * @param value
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setParticles(ParticleOptions particles)
+	public J setValue(ColourRGBA value)
 	{
-		this.particles = particles;
+		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
 		return (J) this;
 	}
 
 	/**
-	 * Returns the interactivity
+	 * Sets the colour value associated
 	 *
-	 * @return
-	 */
-	@NotNull
-	public InteractivityOptions getInteractivity()
-	{
-		if (interactivity == null)
-		{
-			interactivity = new InteractivityOptions();
-		}
-		return interactivity;
-	}
-
-	/**
-	 * Sets the interactivity
-	 *
-	 * @param interactivity
+	 * @param value
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setInteractivity(InteractivityOptions interactivity)
+	public J setValue(ColourCSSImpl value)
 	{
-		this.interactivity = interactivity;
+		this.value = value;
 		return (J) this;
 	}
 
 	/**
-	 * If retina is detected
+	 * Sets the colour
 	 *
-	 * @return
-	 */
-	public boolean isRetinaDetect()
-	{
-		return retinaDetect;
-	}
-
-	/**
-	 * Sets if retina detection must be on
-	 *
-	 * @param retinaDetect
+	 * @param value
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setRetinaDetect(boolean retinaDetect)
+	public J setValue(ColourNames value)
 	{
-		this.retinaDetect = retinaDetect;
+		this.value = new ColourCSSImpl(value.toString());
+		return (J) this;
+	}
+
+	/**
+	 * Sets the colour
+	 *
+	 * @param value
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public J setValue(ColourHexImpl value)
+	{
+		this.value = new ColourCSSImpl(value.toString());
+		return (J) this;
+	}
+
+	/**
+	 * Sets the colour
+	 *
+	 * @param value
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public J setValue(ColourRGB value)
+	{
+		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
 		return (J) this;
 	}
 }

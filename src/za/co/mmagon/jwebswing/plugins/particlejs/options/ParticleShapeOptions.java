@@ -14,17 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.particlejs;
+package za.co.mmagon.jwebswing.plugins.particlejs.options;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.plugins.particlejs.options.InteractivityOptions;
-import za.co.mmagon.jwebswing.plugins.particlejs.options.ParticleOptions;
 
 import javax.validation.constraints.NotNull;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -43,102 +42,47 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticlesJSOptions<J extends ParticlesJSOptions<J>> extends JavaScriptPart<J>
+public class ParticleShapeOptions<J extends ParticleShapeOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-	private ParticleOptions particles;
-	private InteractivityOptions interactivity;
-	@JsonProperty("retina_detect")
-	private boolean retinaDetect;
+	private Set<ParticleShapeTypes> type;
+
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticlesJSOptions()
+	public ParticleShapeOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the Partcles
+	 * Gets the particle shape type (ordered)
 	 *
 	 * @return
 	 */
 	@NotNull
-	public ParticleOptions getParticles()
+	public Set<ParticleShapeTypes> getType()
 	{
-		if (particles == null)
+		if (type == null)
 		{
-			particles = new ParticleOptions();
+			type = new LinkedHashSet<>();
 		}
-		return particles;
+		return type;
 	}
 
 	/**
-	 * Sets the particles
+	 * Gets the type of particle shapre
 	 *
-	 * @param particles
+	 * @param type
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setParticles(ParticleOptions particles)
+	public J setType(Set<ParticleShapeTypes> type)
 	{
-		this.particles = particles;
-		return (J) this;
-	}
-
-	/**
-	 * Returns the interactivity
-	 *
-	 * @return
-	 */
-	@NotNull
-	public InteractivityOptions getInteractivity()
-	{
-		if (interactivity == null)
-		{
-			interactivity = new InteractivityOptions();
-		}
-		return interactivity;
-	}
-
-	/**
-	 * Sets the interactivity
-	 *
-	 * @param interactivity
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setInteractivity(InteractivityOptions interactivity)
-	{
-		this.interactivity = interactivity;
-		return (J) this;
-	}
-
-	/**
-	 * If retina is detected
-	 *
-	 * @return
-	 */
-	public boolean isRetinaDetect()
-	{
-		return retinaDetect;
-	}
-
-	/**
-	 * Sets if retina detection must be on
-	 *
-	 * @param retinaDetect
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setRetinaDetect(boolean retinaDetect)
-	{
-		this.retinaDetect = retinaDetect;
+		this.type = type;
 		return (J) this;
 	}
 }
