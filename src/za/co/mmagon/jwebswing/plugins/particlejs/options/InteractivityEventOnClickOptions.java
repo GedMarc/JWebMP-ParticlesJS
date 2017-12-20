@@ -19,8 +19,9 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -39,101 +40,74 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class InteractivityEventOnClickOptions<J extends InteractivityEventOnClickOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
 	/**
-	 * The colour value
+	 * The mode to be applied
 	 */
-	private ColourCSSImpl value;
+	private Boolean enable;
+	/**
+	 * The mode to be applied
+	 */
+	private InteractivityEventOnClickActionModes mode;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public InteractivityEventOnClickOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Returns if enabled
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Boolean getEnable()
 	{
-		return value;
+		return enable;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets enabled
 	 *
-	 * @param value
+	 * @param enable
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	@NotNull
+	public J setEnable(Boolean enable)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.enable = enable;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
-	 *
-	 * @param value
+	 * Returns the given mode
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public InteractivityEventOnClickActionModes getMode()
 	{
-		this.value = value;
-		return (J) this;
+		return mode;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the given mode
 	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * @param mode
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	@NotNull
+	public J setMode(InteractivityEventOnClickActionModes mode)
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.mode = mode;
 		return (J) this;
 	}
 }

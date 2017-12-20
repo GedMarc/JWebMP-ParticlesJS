@@ -19,8 +19,10 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -39,101 +41,97 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class ParticleSizeOptions<J extends ParticleSizeOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * The colour value
-	 */
-	private ColourCSSImpl value;
+	private Integer value;
+	private Boolean random;
+	@JsonProperty("anim")
+	private ParticleSizeAnimationOptions animations;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public ParticleSizeOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Gets the given value
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Integer getValue()
 	{
 		return value;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the given value
 	 *
 	 * @param value
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour value associated
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public J setValue(Integer value)
 	{
 		this.value = value;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
+	 * Gets if random
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Boolean getRandom()
+	{
+		return random;
+	}
+
+	/**
+	 * Sets if random
+	 *
+	 * @param random
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	public J setRandom(Boolean random)
 	{
-		this.value = new ColourCSSImpl(value.toString());
+		this.random = random;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * Gets the animarions
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	@NotNull
+	public ParticleSizeAnimationOptions getAnimations()
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
+		if (animations == null)
+		{
+			animations = new ParticleSizeAnimationOptions();
+		}
+		return animations;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the eanimations for size changes
 	 *
-	 * @param value
+	 * @param animations
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
+	public J setAnimations(ParticleSizeAnimationOptions animations)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.animations = animations;
 		return (J) this;
 	}
 }

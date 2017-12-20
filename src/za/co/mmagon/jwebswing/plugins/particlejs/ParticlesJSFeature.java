@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,11 +29,11 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
  */
 public class ParticlesJSFeature extends Feature<ParticlesJSOptions, ParticlesJSFeature> implements ParticlesJSFeatures, GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private ParticlesJSOptions options;
-	
+
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
@@ -45,7 +45,7 @@ public class ParticlesJSFeature extends Feature<ParticlesJSOptions, ParticlesJSF
 		super("ParticlesJS");
 		setComponent(forComponent);
 	}
-	
+
 	/**
 	 * Returns all the tooltip options
 	 * <p>
@@ -61,16 +61,16 @@ public class ParticlesJSFeature extends Feature<ParticlesJSOptions, ParticlesJSF
 		}
 		return options;
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = "particlesJS.load('" + getComponent().getID() + "', 'assets/particles.json', function() {" + getNewLine() +
-				"  console.log('callback - particles.js config loaded');" + getNewLine() +
-				"});" + getNewLine();
+		String requiredString = "particlesJS.load('" + getComponent().getID() + "'," + getOptions() + ", function() {" + getNewLine() +
+				                        "  console.log('callback - particles.js config loaded');" + getNewLine() +
+				                        "});" + getNewLine();
 		addQuery(requiredString);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -88,7 +88,7 @@ public class ParticlesJSFeature extends Feature<ParticlesJSOptions, ParticlesJSF
 		}
 		return super.equals(obj);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

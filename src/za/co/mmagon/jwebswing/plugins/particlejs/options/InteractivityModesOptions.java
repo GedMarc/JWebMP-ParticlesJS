@@ -40,133 +40,171 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleShapeOptions<J extends ParticleShapeOptions<J>> extends JavaScriptPart<J>
+public class InteractivityModesOptions<J extends InteractivityModesOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-	private ParticleShapeTypes type;
-
-	private ParticleShapeStrokeOptions stroke;
-	private ParticleShapePolygonOptions polygon;
-	private ParticleShapeImageOptions image;
+	private InteractivityModesGrabOptions grab;
+	private InteractivityModesBubbleOptions bubble;
+	private InteractivityModesRepulseOptions repulse;
+	private InteractivityModesPushOptions push;
+	private InteractivityModesRemoveOptions remove;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleShapeOptions()
+	public InteractivityModesOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Gets the particle shape type (ordered)
-	 *
-	 * @return
-	 */
-
-	public ParticleShapeTypes getType()
-	{
-		return type;
-	}
-
-	/**
-	 * Gets the type of particle shapre
-	 *
-	 * @param type
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setType(ParticleShapeTypes type)
-	{
-		this.type = type;
-		return (J) this;
-	}
-
-	/**
-	 * Gets the stroke
+	 * Gets the grab options
 	 *
 	 * @return
 	 */
 	@NotNull
-	public ParticleShapeStrokeOptions getStroke()
+	public InteractivityModesGrabOptions getGrab()
 	{
-		if (stroke == null)
+		if (grab == null)
 		{
-			stroke = new ParticleShapeStrokeOptions();
+			grab = new InteractivityModesGrabOptions();
 		}
-		return stroke;
+		return grab;
 	}
 
 	/**
-	 * Sets the stroke
+	 * Sets the grab options
 	 *
-	 * @param stroke
+	 * @param grab
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setStroke(ParticleShapeStrokeOptions stroke)
+	@NotNull
+	public J setGrab(InteractivityModesGrabOptions grab)
 	{
-		this.stroke = stroke;
+		this.grab = grab;
 		return (J) this;
 	}
 
 	/**
-	 * Gets the polygon settings
+	 * Gets the bubble options
 	 *
 	 * @return
 	 */
 	@NotNull
-	public ParticleShapePolygonOptions getPolygon()
+	public InteractivityModesBubbleOptions getBubble()
 	{
-		if (polygon == null)
+		if (bubble == null)
 		{
-			polygon = new ParticleShapePolygonOptions();
+			bubble = new InteractivityModesBubbleOptions();
 		}
-		return polygon;
+		return bubble;
 	}
 
 	/**
-	 * Sets the polygon
+	 * Sets the bubble options
 	 *
-	 * @param polygon
+	 * @param bubble
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setPolygon(ParticleShapePolygonOptions polygon)
+	@NotNull
+	public J setBubble(InteractivityModesBubbleOptions bubble)
 	{
-		this.polygon = polygon;
+		this.bubble = bubble;
 		return (J) this;
 	}
 
 	/**
-	 * Returns the image
+	 * Gets the repulse options
 	 *
 	 * @return
 	 */
 	@NotNull
-	public ParticleShapeImageOptions getImage()
+	public InteractivityModesRepulseOptions getRepulse()
 	{
-		if (image == null)
+		if (repulse == null)
 		{
-			image = new ParticleShapeImageOptions();
+			repulse = new InteractivityModesRepulseOptions();
 		}
-		return image;
+		return repulse;
 	}
 
 	/**
-	 * Sets the iamge for the particle shape options
+	 * Gets the repulse options
 	 *
-	 * @param image
+	 * @param repulse
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setImage(ParticleShapeImageOptions image)
+	@NotNull
+	public J setRepulse(InteractivityModesRepulseOptions repulse)
 	{
-		this.image = image;
+		this.repulse = repulse;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the push options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public InteractivityModesPushOptions getPush()
+	{
+		if (push == null)
+		{
+			push = new InteractivityModesPushOptions();
+		}
+		return push;
+	}
+
+	/**
+	 * Sets the push options
+	 *
+	 * @param push
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPush(InteractivityModesPushOptions push)
+	{
+		this.push = push;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the remove options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public InteractivityModesRemoveOptions getRemove()
+	{
+		if (remove == null)
+		{
+			remove = new InteractivityModesRemoveOptions();
+		}
+		return remove;
+	}
+
+	/**
+	 * Sets the remove options
+	 *
+	 * @param remove
+	 *
+	 * @return
+	 */
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setRemove(InteractivityModesRemoveOptions remove)
+	{
+		this.remove = remove;
 		return (J) this;
 	}
 }

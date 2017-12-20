@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
@@ -39,101 +39,42 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class ParticleShapePolygonOptions<J extends ParticleShapePolygonOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * The colour value
-	 */
-	private ColourCSSImpl value;
+	@JsonProperty("nb_sides")
+	private Integer sides;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public ParticleShapePolygonOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Returns the number of sides
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Integer getSides()
 	{
-		return value;
+		return sides;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the number of sides
 	 *
-	 * @param value
+	 * @param sides
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	public J setSides(Integer sides)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour value associated
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
-	{
-		this.value = value;
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.sides = sides;
 		return (J) this;
 	}
 }

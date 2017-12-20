@@ -19,8 +19,9 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -39,101 +40,68 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class InteractivityEventsOptions<J extends InteractivityEventsOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * The colour value
-	 */
-	private ColourCSSImpl value;
+	private InteractivityEventOnHoverOptions onhover;
+	private InteractivityEventOnClickOptions onclick;
+	private Boolean resize;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public InteractivityEventsOptions()
 	{
 		//Nothing needed
 	}
 
-	/**
-	 * Returns the colour value associated
-	 *
-	 * @return
-	 */
-	public ColourCSSImpl getValue()
+	@NotNull
+	public InteractivityEventOnHoverOptions getOnhover()
 	{
-		return value;
+		if (onhover == null)
+		{
+			onhover = new InteractivityEventOnHoverOptions();
+		}
+		return onhover;
 	}
 
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	@NotNull
+	public J setOnhover(InteractivityEventOnHoverOptions onhover)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.onhover = onhover;
 		return (J) this;
 	}
 
-	/**
-	 * Sets the colour value associated
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	@NotNull
+	public InteractivityEventOnClickOptions getOnclick()
 	{
-		this.value = value;
+		if (onclick == null)
+		{
+			onclick = new InteractivityEventOnClickOptions();
+		}
+		return onclick;
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setOnclick(InteractivityEventOnClickOptions onclick)
+	{
+		this.onclick = onclick;
 		return (J) this;
 	}
 
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	public Boolean getResize()
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
+		return resize;
 	}
 
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	@NotNull
+	public J setResize(Boolean resize)
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.resize = resize;
 		return (J) this;
 	}
 }

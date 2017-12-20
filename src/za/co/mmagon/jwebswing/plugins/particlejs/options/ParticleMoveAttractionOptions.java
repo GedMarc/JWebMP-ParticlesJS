@@ -19,7 +19,6 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
@@ -39,101 +38,91 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class ParticleMoveAttractionOptions<J extends ParticleMoveAttractionOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * The colour value
-	 */
-	private ColourCSSImpl value;
+	private Boolean enable;
+	private Integer rotateX;
+	private Integer rotateY;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public ParticleMoveAttractionOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Sets enabled
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Boolean getEnable()
 	{
-		return value;
+		return enable;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets enabled
 	 *
-	 * @param value
+	 * @param enable
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	public J setEnable(Boolean enable)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.enable = enable;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
+	 * Gets the rotation of x
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Integer getRotateX()
+	{
+		return rotateX;
+	}
+
+	/**
+	 * Gets the rotation of x
+	 *
+	 * @param rotateX
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public J setRotateX(Integer rotateX)
 	{
-		this.value = value;
+		this.rotateX = rotateX;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * Gets the rotation of y
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	public Integer getRotateY()
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
+		return rotateY;
 	}
 
 	/**
-	 * Sets the colour
+	 * Gets the rotation of x
 	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * @param rotateY
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
+	public J setRotateY(Integer rotateY)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.rotateY = rotateY;
 		return (J) this;
 	}
 }

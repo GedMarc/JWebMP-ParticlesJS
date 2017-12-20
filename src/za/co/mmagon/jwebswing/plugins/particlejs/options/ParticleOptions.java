@@ -19,7 +19,10 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -42,6 +45,36 @@ public class ParticleOptions<J extends ParticleOptions<J>> extends JavaScriptPar
 {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of particles
+	 */
+	private ParticleNumberOptions number;
+	/**
+	 * The colour of the particles
+	 */
+	@JsonProperty("color")
+	private ParticleColourOptions colour;
+	/**
+	 * The shape of the particles
+	 */
+	private ParticleShapeOptions shape;
+	/**
+	 * The opacity of the particles
+	 */
+	private ParticleOpacityOptions opacity;
+	/**
+	 * The size of the particles
+	 */
+	private ParticleSizeOptions size;
+	/**
+	 * The line for the particles
+	 */
+	@JsonProperty("line_linked")
+	private ParticleLineLinkedOptions lineLinks;
+	/**
+	 * Movement options for the particles
+	 */
+	private ParticleMoveOptions move;
 
 	/**
 	 * Constructs a new options container for particles js
@@ -51,4 +84,213 @@ public class ParticleOptions<J extends ParticleOptions<J>> extends JavaScriptPar
 		//Nothing needed
 	}
 
+	/**
+	 * Returns the number of particle options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleNumberOptions getNumber()
+	{
+		if (number == null)
+		{
+			number = new ParticleNumberOptions();
+		}
+		return number;
+	}
+
+	/**
+	 * Sets the number of particles options
+	 *
+	 * @param number
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setNumber(ParticleNumberOptions number)
+	{
+		this.number = number;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the colour options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleColourOptions getColour()
+	{
+		if (colour == null)
+		{
+			colour = new ParticleColourOptions();
+		}
+		return colour;
+	}
+
+	/**
+	 * Sets the colour options
+	 *
+	 * @param colour
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setColour(ParticleColourOptions colour)
+	{
+		this.colour = colour;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the shape options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleShapeOptions getShape()
+	{
+		if (shape == null)
+		{
+			shape = new ParticleShapeOptions();
+		}
+		return shape;
+	}
+
+	/**
+	 * Sets the shape options
+	 *
+	 * @param shape
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShape(ParticleShapeOptions shape)
+	{
+		this.shape = shape;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the opacity options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleOpacityOptions getOpacity()
+	{
+		if (opacity == null)
+		{
+			opacity = new ParticleOpacityOptions();
+		}
+		return opacity;
+	}
+
+	/**
+	 * Sets the opacity options
+	 *
+	 * @param opacity
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setOpacity(ParticleOpacityOptions opacity)
+	{
+		this.opacity = opacity;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the size options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleSizeOptions getSize()
+	{
+		if (size == null)
+		{
+			size = new ParticleSizeOptions();
+		}
+		return size;
+	}
+
+	/**
+	 * Sets the size options
+	 *
+	 * @param size
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSize(ParticleSizeOptions size)
+	{
+		this.size = size;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the Line link options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleLineLinkedOptions getLineLinks()
+	{
+		if (lineLinks == null)
+		{
+			lineLinks = new ParticleLineLinkedOptions();
+		}
+		return lineLinks;
+	}
+
+	/**
+	 * Sets the line link options
+	 *
+	 * @param lineLinks
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLineLinks(ParticleLineLinkedOptions lineLinks)
+	{
+		this.lineLinks = lineLinks;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the movement options
+	 *
+	 * @return
+	 */
+	@NotNull
+	public ParticleMoveOptions getMove()
+	{
+		if (move == null)
+		{
+			move = new ParticleMoveOptions();
+		}
+		return move;
+	}
+
+	/**
+	 * Sets the movement options
+	 *
+	 * @param move
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMove(ParticleMoveOptions move)
+	{
+		this.move = move;
+		return (J) this;
+	}
 }

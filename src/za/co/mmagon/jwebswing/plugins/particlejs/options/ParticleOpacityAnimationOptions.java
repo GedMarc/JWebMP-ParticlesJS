@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
@@ -39,101 +39,116 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class ParticleOpacityAnimationOptions<J extends ParticleOpacityAnimationOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
-
-
-	/**
-	 * The colour value
-	 */
-	private ColourCSSImpl value;
+	private Boolean enable;
+	private Integer speed;
+	@JsonProperty("opacity_min")
+	private Double opacityMin;
+	private Boolean sync;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public ParticleOpacityAnimationOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Returns if enabled
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Boolean getEnable()
 	{
-		return value;
+		return enable;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets enabled
 	 *
-	 * @param value
+	 * @param enable
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	public J setEnable(Boolean enable)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.enable = enable;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
+	 * Returns the speed
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Integer getSpeed()
+	{
+		return speed;
+	}
+
+	/**
+	 * Sets this speed
+	 *
+	 * @param speed
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public J setSpeed(Integer speed)
 	{
-		this.value = value;
+		this.speed = speed;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
+	 * Returns the opactiy minimum
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Double getOpacityMin()
+	{
+		return opacityMin;
+	}
+
+	/**
+	 * Sets the opactiy minimum
+	 *
+	 * @param opacityMin
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	public J setOpacityMin(Double opacityMin)
 	{
-		this.value = new ColourCSSImpl(value.toString());
+		this.opacityMin = opacityMin;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * Gets the sync
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	public Boolean getSync()
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
+		return sync;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the sync
 	 *
-	 * @param value
+	 * @param sync
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
+	public J setSync(Boolean sync)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.sync = sync;
 		return (J) this;
 	}
 }

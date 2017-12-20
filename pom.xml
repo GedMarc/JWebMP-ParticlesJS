@@ -104,6 +104,7 @@
                 <directory>src</directory>
                 <includes>
                     <include>**/*.js</include>
+                    <include>**/*.json</include>
                     <include>**/*.css</include>
                     <include>**/*.min</include>
                     <include>**/*.html</include>

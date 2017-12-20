@@ -19,7 +19,8 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import za.co.mmagon.jwebswing.htmlbuilder.css.colours.ColourCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
@@ -39,101 +40,156 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class ParticleLineLinkedOptions<J extends ParticleLineLinkedOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
-
-
 	/**
-	 * The colour value
+	 * Enabled
 	 */
-	private ColourCSSImpl value;
+	private Boolean enable;
+	/**
+	 * The distance
+	 */
+	private Integer distance;
+	/**
+	 * The colour of the line
+	 */
+	@JsonProperty("color")
+	private ColourCSSImpl colour;
+	/**
+	 * The opacity of the line
+	 */
+	private Double opacity;
+	/**
+	 * The width of the line
+	 */
+	private Integer width;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public ParticleLineLinkedOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Gets enabled
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Boolean getEnable()
 	{
-		return value;
+		return enable;
+	}
+
+	/**
+	 * Sets enabled
+	 *
+	 * @param enable
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public J setEnable(Boolean enable)
+	{
+		this.enable = enable;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the distance
+	 *
+	 * @return
+	 */
+	public Integer getDistance()
+	{
+		return distance;
+	}
+
+	/**
+	 * Sets the distance
+	 *
+	 * @param distance
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public J setDistance(Integer distance)
+	{
+		this.distance = distance;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the colour
+	 *
+	 * @return
+	 */
+	public ColourCSSImpl getColour()
+	{
+		return colour;
 	}
 
 	/**
 	 * Sets the colour
 	 *
-	 * @param value
+	 * @param colour
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	public J setColour(ColourCSSImpl colour)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.colour = colour;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
+	 * Gets the opacity
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Double getOpacity()
+	{
+		return opacity;
+	}
+
+	/**
+	 * Sets the opacity
+	 *
+	 * @param opacity
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public J setOpacity(Double opacity)
 	{
-		this.value = value;
+		this.opacity = opacity;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * Gets the width
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	public Integer getWidth()
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
+		return width;
 	}
 
 	/**
-	 * Sets the colour
+	 * Gets the width
 	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * @param width
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
+	public J setWidth(Integer width)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.width = width;
 		return (J) this;
 	}
 }

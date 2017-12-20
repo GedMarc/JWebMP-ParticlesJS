@@ -19,8 +19,9 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -39,101 +40,158 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class InteractivityModesBubbleOptions<J extends InteractivityModesBubbleOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
+	private Integer distance;
 	/**
-	 * The colour value
+	 * The size of the movement
 	 */
-	private ColourCSSImpl value;
+	private Integer size;
+	/**
+	 * The duration
+	 */
+	private Integer duration;
+	/**
+	 * Opacity of the movement
+	 */
+	private Double opacity;
+	/**
+	 * The speed
+	 */
+	private Integer speed;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public InteractivityModesBubbleOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Gets the distance
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Integer getDistance()
 	{
-		return value;
+		return distance;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the distance
 	 *
-	 * @param value
+	 * @param distance
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	@NotNull
+	public J setDistance(Integer distance)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.distance = distance;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
+	 * Sets the size
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Integer getSize()
+	{
+		return size;
+	}
+
+	/**
+	 * Gets the size
+	 *
+	 * @param size
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	@NotNull
+	public J setSize(Integer size)
 	{
-		this.value = value;
+		this.size = size;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
+	 * Gets the duration
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Integer getDuration()
+	{
+		return duration;
+	}
+
+	/**
+	 * Sets the duration
+	 *
+	 * @param duration
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	@NotNull
+	public J setDuration(Integer duration)
 	{
-		this.value = new ColourCSSImpl(value.toString());
+		this.duration = duration;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
+	 * Gets the opacity
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Double getOpacity()
+	{
+		return opacity;
+	}
+
+	/**
+	 * Sets the opacity
+	 *
+	 * @param opacity
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	@NotNull
+	public J setOpacity(Double opacity)
 	{
-		this.value = new ColourCSSImpl(value.toString());
+		this.opacity = opacity;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
+	 * Gets the speed
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Integer getSpeed()
+	{
+		return speed;
+	}
+
+	/**
+	 * Sets the speed
+	 *
+	 * @param speed
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
+	@NotNull
+	public J setSpeed(Integer speed)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.speed = speed;
 		return (J) this;
 	}
 }

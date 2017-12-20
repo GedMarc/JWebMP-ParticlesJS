@@ -19,8 +19,10 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -39,101 +41,74 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class InteractivityModesGrabOptions<J extends InteractivityModesGrabOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * The colour value
-	 */
-	private ColourCSSImpl value;
+	private Integer distance;
+	@JsonProperty("line_linked")
+	private InteractivityModesGrabLineLinkedOptions lineLinks;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public InteractivityModesGrabOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Returns the distance
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Integer getDistance()
 	{
-		return value;
+		return distance;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the distance
 	 *
-	 * @param value
+	 * @param distance
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	@NotNull
+	public J setDistance(Integer distance)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.distance = distance;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
-	 *
-	 * @param value
+	 * Returns the line links available
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	@NotNull
+	public InteractivityModesGrabLineLinkedOptions getLineLinks()
 	{
-		this.value = value;
-		return (J) this;
+		if (lineLinks == null)
+		{
+			lineLinks = new InteractivityModesGrabLineLinkedOptions();
+		}
+		return lineLinks;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the line links available
 	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * @param lineLinks
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	@NotNull
+	public J setLineLinks(InteractivityModesGrabLineLinkedOptions lineLinks)
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.lineLinks = lineLinks;
 		return (J) this;
 	}
 }

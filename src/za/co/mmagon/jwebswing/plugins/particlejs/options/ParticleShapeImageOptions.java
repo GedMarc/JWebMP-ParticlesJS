@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
@@ -39,101 +39,100 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class ParticleShapeImageOptions<J extends ParticleShapeImageOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
-
-
 	/**
-	 * The colour value
+	 * The source
 	 */
-	private ColourCSSImpl value;
+	@JsonProperty("src")
+	private String source;
+	/**
+	 * The width
+	 */
+	private Integer width;
+	/**
+	 * The height
+	 */
+	private Integer height;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public ParticleShapeImageOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Returns the given source
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public String getSource()
 	{
-		return value;
+		return source;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the source
 	 *
-	 * @param value
+	 * @param source
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	public J setSource(String source)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.source = source;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
+	 * Gets the width
 	 *
-	 * @param value
+	 * @return
+	 */
+	public Integer getWidth()
+	{
+		return width;
+	}
+
+	/**
+	 * Sets the width
+	 *
+	 * @param width
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public J setWidth(Integer width)
 	{
-		this.value = value;
+		this.width = width;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * Returns the height
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
+	public Integer getHeight()
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
+		return height;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the height of the image
 	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * @param height
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
+	public J setHeight(Integer height)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.height = height;
 		return (J) this;
 	}
 }

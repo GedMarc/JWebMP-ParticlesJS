@@ -19,7 +19,10 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -41,6 +44,16 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 public class InteractivityOptions<J extends InteractivityOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
+	@JsonProperty("detect_on")
+	private InteractivityDetectOn detectOn;
+	/**
+	 * The events listing
+	 */
+	private InteractivityEventsOptions events;
+	/**
+	 * The modes listing
+	 */
+	private InteractivityModesOptions modes;
 
 
 	/**
@@ -51,5 +64,88 @@ public class InteractivityOptions<J extends InteractivityOptions<J>> extends Jav
 		//Nothing needed
 	}
 
+	/**
+	 * Gets the detect on
+	 *
+	 * @return
+	 */
+	public InteractivityDetectOn getDetectOn()
+	{
+		return detectOn;
+	}
 
+	/**
+	 * Sets the detect on
+	 *
+	 * @param detectOn
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDetectOn(InteractivityDetectOn detectOn)
+	{
+		this.detectOn = detectOn;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the events
+	 *
+	 * @return
+	 */
+	@NotNull
+	public InteractivityEventsOptions getEvents()
+	{
+		if (events == null)
+		{
+			events = new InteractivityEventsOptions();
+		}
+		return events;
+	}
+
+	/**
+	 * Sets the events
+	 *
+	 * @param events
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEvents(InteractivityEventsOptions events)
+	{
+		this.events = events;
+		return (J) this;
+	}
+
+	/**
+	 * Gets the modes
+	 *
+	 * @return
+	 */
+	@NotNull
+	public InteractivityModesOptions getModes()
+	{
+		if (modes == null)
+		{
+			modes = new InteractivityModesOptions();
+		}
+		return modes;
+	}
+
+	/**
+	 * Sets the modes
+	 *
+	 * @param modes
+	 *
+	 * @return
+	 */
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J setModes(InteractivityModesOptions modes)
+	{
+		this.modes = modes;
+		return (J) this;
+	}
 }

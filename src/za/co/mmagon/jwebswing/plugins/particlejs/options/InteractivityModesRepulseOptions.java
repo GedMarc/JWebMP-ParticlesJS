@@ -19,8 +19,9 @@ package za.co.mmagon.jwebswing.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.*;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+import javax.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
@@ -39,101 +40,73 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParticleColourOptions<J extends ParticleColourOptions<J>> extends JavaScriptPart<J>
+public class InteractivityModesRepulseOptions<J extends InteractivityModesRepulseOptions<J>> extends JavaScriptPart<J>
 {
 	private static final long serialVersionUID = 1L;
-
-
 	/**
-	 * The colour value
+	 * The distance
 	 */
-	private ColourCSSImpl value;
+	private Integer distance;
+	/**
+	 * The duration
+	 */
+	private Double duration;
 
 	/**
 	 * Constructs a new options container for particles js
 	 */
-	public ParticleColourOptions()
+	public InteractivityModesRepulseOptions()
 	{
 		//Nothing needed
 	}
 
 	/**
-	 * Returns the colour value associated
+	 * Returns the distance
 	 *
 	 * @return
 	 */
-	public ColourCSSImpl getValue()
+	public Integer getDistance()
 	{
-		return value;
+		return distance;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the distance
 	 *
-	 * @param value
+	 * @param distance
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
+	@NotNull
+	public J setDistance(Integer distance)
 	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).setAlpha(value.Alpha()).toString());
+		this.distance = distance;
 		return (J) this;
 	}
 
 	/**
-	 * Sets the colour value associated
-	 *
-	 * @param value
+	 * Gets the duration
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourCSSImpl value)
+	public Double getDuration()
 	{
-		this.value = value;
-		return (J) this;
+		return duration;
 	}
 
 	/**
-	 * Sets the colour
+	 * Sets the duration
 	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourNames value)
-	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
+	 * @param duration
 	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setValue(ColourHexImpl value)
+	@NotNull
+	public J setDuration(Double duration)
 	{
-		this.value = new ColourCSSImpl(value.toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBImpl value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBImpl().setBlue(value.Blue()).setGreen(value.Green()).setRed(value.Red()).toString());
+		this.duration = duration;
 		return (J) this;
 	}
 }
