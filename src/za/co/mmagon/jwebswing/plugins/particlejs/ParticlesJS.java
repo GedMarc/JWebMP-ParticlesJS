@@ -3,6 +3,7 @@ package za.co.mmagon.jwebswing.plugins.particlejs;
 import za.co.mmagon.jwebswing.base.html.DivSimple;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 @ComponentInformation(name = "ParticlesJS"
@@ -19,8 +20,10 @@ public class ParticlesJS<J extends ParticlesJS<J>> extends DivSimple<J>
 	/**
 	 * Configures the page for this component
 	 */
-	public ParticlesJS()
+	public ParticlesJS(String id)
 	{
+		super();
+		setID(id);
 		feature = new ParticlesJSFeature(this);
 		addFeature(feature);
 	}
@@ -34,6 +37,32 @@ public class ParticlesJS<J extends ParticlesJS<J>> extends DivSimple<J>
 	public ParticlesJSFeature getFeature()
 	{
 		return feature;
+	}
+
+	/**
+	 * Gets the options for particles
+	 *
+	 * @return
+	 */
+	@Nullable
+	@Override
+	public ParticlesJSOptions getOptions()
+	{
+		return getFeature().getOptions();
+	}
+
+	/**
+	 * Sets the options for particles
+	 *
+	 * @param options
+	 *
+	 * @return
+	 */
+
+	public ParticlesJS setOptions(ParticlesJSOptions options)
+	{
+		getFeature().setOptions(options);
+		return this;
 	}
 
 	@Override
