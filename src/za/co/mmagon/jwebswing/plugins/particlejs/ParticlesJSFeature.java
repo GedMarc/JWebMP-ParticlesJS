@@ -65,9 +65,7 @@ public class ParticlesJSFeature extends Feature<ParticlesJSOptions, ParticlesJSF
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = "particlesJS.load('" + getComponent().getID() + "'," + getOptions() + ", function() {" + getNewLine() +
-				                        "  console.log('callback - particles.js config loaded');" + getNewLine() +
-				                        "});" + getNewLine();
+		String requiredString = "particlesJS('" + getComponent().getID() + "'," + getOptions() + ");" + getNewLine();
 		addQuery(requiredString);
 	}
 

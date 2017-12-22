@@ -19,4 +19,6 @@ class ParticleThemesTest
 		opt = th.getParticleConfiguration();
 		System.out.println(opt);
 	}
+
+
 }

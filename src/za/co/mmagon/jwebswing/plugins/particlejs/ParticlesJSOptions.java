@@ -50,7 +50,7 @@ public class ParticlesJSOptions<J extends ParticlesJSOptions<J>> extends JavaScr
 	private ParticleOptions particles;
 	private InteractivityOptions interactivity;
 	@JsonProperty("retina_detect")
-	private boolean retinaDetect;
+	private Boolean retinaDetect;
 
 	/**
 	 * Constructs a new options container for particles js
@@ -123,7 +123,7 @@ public class ParticlesJSOptions<J extends ParticlesJSOptions<J>> extends JavaScr
 	 *
 	 * @return
 	 */
-	public boolean isRetinaDetect()
+	public Boolean isRetinaDetect()
 	{
 		return retinaDetect;
 	}
@@ -136,7 +136,7 @@ public class ParticlesJSOptions<J extends ParticlesJSOptions<J>> extends JavaScr
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public J setRetinaDetect(boolean retinaDetect)
+	public J setRetinaDetect(Boolean retinaDetect)
 	{
 		this.retinaDetect = retinaDetect;
 		return (J) this;
