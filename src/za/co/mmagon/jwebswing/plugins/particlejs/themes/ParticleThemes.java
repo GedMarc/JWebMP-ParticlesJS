@@ -40,8 +40,7 @@ public enum ParticleThemes
 	public ParticlesJSOptions getParticleConfiguration() throws IOException
 	{
 		StringBuilder file = FileTemplates.getFileTemplate(ParticleThemes.class, name(), jsonFile);
-		ParticlesJSOptions options = GuiceContext.getInstance(ObjectMapper.class).readValue(file.toString(), ParticlesJSOptions.class);
-		return options;
+		return GuiceContext.getInstance(ObjectMapper.class).readValue(file.toString(), ParticlesJSOptions.class);
 	}
 }
 
