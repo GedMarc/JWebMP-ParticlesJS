@@ -55,7 +55,6 @@ public class ParticlesJS<J extends ParticlesJS<J>> extends DivSimple<J>
 		}
 
 		ParticlesJS<?> that = (ParticlesJS<?>) o;
-
 		return getFeature().equals(that.getFeature());
 	}
 
