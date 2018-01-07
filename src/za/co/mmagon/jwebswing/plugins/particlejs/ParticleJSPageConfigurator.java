@@ -45,7 +45,7 @@ public class ParticleJSPageConfigurator extends PageConfigurator
 	{
 		if (!page.isConfigured())
 		{
-			JQueryPageConfigurator.setRequired(page.getBody(), true);
+			JQueryPageConfigurator.setRequired(true);
 			page.getBody().addJavaScriptReference(ParticleJSReferencePool.ParticlesJS.getJavaScriptReference());
 		}
 		return page;

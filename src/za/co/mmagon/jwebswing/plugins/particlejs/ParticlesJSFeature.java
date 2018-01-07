@@ -22,6 +22,8 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 
 import javax.validation.constraints.NotNull;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
  *
@@ -66,7 +68,7 @@ public class ParticlesJSFeature extends Feature<ParticlesJSOptions, ParticlesJSF
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = "particlesJS('" + getComponent().getID() + "'," + getOptions() + ");" + getNewLine();
+		String requiredString = "particlesJS('" + getComponent().getID() + "'," + getOptions() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
 		addQuery(requiredString);
 	}
 
