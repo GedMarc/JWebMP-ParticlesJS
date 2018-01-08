@@ -13,7 +13,7 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
  */
 enum ParticleJSReferencePool implements ReferencePool
 {
-	ParticlesJS(new JavascriptReference("ParticlesJS", 1.6, "bower_components/particles.js/particles.js", RequirementsPriority.Top_Shelf),
+	ParticlesJS(new JavascriptReference("ParticlesJS", 1.6, "bower_components/particles.js/particles.min.js", RequirementsPriority.Top_Shelf),
 	            null);
 	/**
 	 * Any sub data
