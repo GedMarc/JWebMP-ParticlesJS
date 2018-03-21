@@ -9,12 +9,14 @@ class ParticlesJSTest
 	@Test
 	public void testMe()
 	{
-		ParticlesJS particlesJS = new ParticlesJS("particleView");
+		ParticlesJS<?> particlesJS = new ParticlesJS("particleView");
 		System.out.println(particlesJS.renderJavascript());
 
-		Page p = new Page();
-		p.add(particlesJS);
-		p.getOptions().setDynamicRender(false);
+		Page<?> p = new Page();
+		p.getBody()
+		 .add(particlesJS);
+		p.getOptions()
+		 .setDynamicRender(false);
 		System.out.println(p.toString(0));
 
 	}
