@@ -33,7 +33,6 @@ public class ParticlesJS<J extends ParticlesJS<J>>
 	 */
 	private final ParticlesJSFeature feature;
 
-
 	/**
 	 * Configures the page for this component
 	 */
@@ -46,31 +45,9 @@ public class ParticlesJS<J extends ParticlesJS<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public ParticlesJSOptions<?> getOptions()
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof ParticlesJS))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		ParticlesJS<?> that = (ParticlesJS<?>) o;
-		return getFeature().equals(that.getFeature());
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = super.hashCode();
-		result = 31 * result + getFeature().hashCode();
-		return result;
+		return getFeature().getOptions();
 	}
 
 	/**
@@ -83,4 +60,5 @@ public class ParticlesJS<J extends ParticlesJS<J>>
 	{
 		return feature;
 	}
+
 }

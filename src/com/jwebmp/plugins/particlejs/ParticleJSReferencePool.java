@@ -11,7 +11,7 @@ import com.jwebmp.base.servlets.interfaces.ReferencePool;
  * @author Marc Magon
  * @since 09 Jun 2017
  */
-enum ParticleJSReferencePool
+public enum ParticleJSReferencePool
 		implements ReferencePool
 {
 	ParticlesJS(new JavascriptReference("ParticlesJS", 1.6, "bower_components/particles.js/particles.min.js", RequirementsPriority.Top_Shelf), null);
