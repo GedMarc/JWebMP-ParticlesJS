@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.particlejs;
 
-import com.jwebmp.Component;
-import com.jwebmp.Feature;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 

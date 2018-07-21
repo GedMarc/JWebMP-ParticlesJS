@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.particlejs;
 
-import com.jwebmp.base.html.DivSimple;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.plugins.ComponentInformation;
 
 import javax.validation.constraints.NotNull;
 

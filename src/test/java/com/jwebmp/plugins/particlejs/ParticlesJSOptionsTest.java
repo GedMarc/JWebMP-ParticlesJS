@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.particlejs;
 
-import com.jwebmp.htmlbuilder.css.colours.ColourCSSImpl;
+import com.jwebmp.core.htmlbuilder.css.colours.ColourCSSImpl;
 import com.jwebmp.plugins.particlejs.options.InteractivityEventOnClickActionModes;
 import org.junit.jupiter.api.Test;
 

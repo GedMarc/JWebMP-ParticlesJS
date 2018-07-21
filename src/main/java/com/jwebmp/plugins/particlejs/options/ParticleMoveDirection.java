@@ -18,7 +18,7 @@
 package com.jwebmp.plugins.particlejs.options;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.jwebmp.utilities.StaticStrings;
+import com.jwebmp.core.utilities.StaticStrings;
 
 /**
  * The movement direction
