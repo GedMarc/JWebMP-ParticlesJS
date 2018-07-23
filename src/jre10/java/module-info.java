@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.particlejs.ParticleJSPageConfigurator;
+
 module com.jwebmp.plugins.particlejs {
 
 	exports com.jwebmp.plugins.particlejs;
@@ -12,4 +15,7 @@ module com.jwebmp.plugins.particlejs {
 	requires java.logging;
 	requires com.jwebmp.guicedinjection;
 	requires com.fasterxml.jackson.databind;
+
+	provides IPageConfigurator with ParticleJSPageConfigurator;
+
 }

@@ -18,10 +18,10 @@
 package com.jwebmp.plugins.particlejs;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.core.services.IPageConfigurator;
 
 /**
  * @author Marc Magon
@@ -44,11 +44,8 @@ import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 		description = "A lightweight JavaScript library for creating particles.",
 		url = "http://vincentgarreau.com/particles.js/")
 public class ParticleJSPageConfigurator
-		extends PageConfigurator
+		implements IPageConfigurator
 {
-
-	private static final long serialVersionUID = 1L;
-
 	/*
 	 * Constructs a new ParticleJSPageConfigurator
 	 */
