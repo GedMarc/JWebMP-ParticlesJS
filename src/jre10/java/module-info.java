@@ -18,4 +18,9 @@ module com.jwebmp.plugins.particlejs {
 
 	provides IPageConfigurator with ParticleJSPageConfigurator;
 
+	opens com.jwebmp.plugins.particlejs to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.particlejs.options to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.particlejs.themes to com.fasterxml.jackson.databind, com.jwebmp.core;
+
+
 }
