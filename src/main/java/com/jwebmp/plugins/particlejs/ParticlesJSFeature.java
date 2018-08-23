@@ -18,7 +18,6 @@ package com.jwebmp.plugins.particlejs;
 
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
@@ -31,8 +30,7 @@ import javax.validation.constraints.NotNull;
  * @since 2013/01/16
  */
 public class ParticlesJSFeature
-		extends Feature<ParticlesJSOptions, ParticlesJSFeature>
-		implements ParticlesJSFeatures, GlobalFeatures
+		extends Feature<ParticlesJSFeature, ParticlesJSOptions, ParticlesJSFeature>
 {
 
 	private static final long serialVersionUID = 1L;
