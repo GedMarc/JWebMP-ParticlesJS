@@ -48,12 +48,42 @@ import javax.validation.constraints.NotNull;
 public class ParticleJSPageConfigurator
 		implements IPageConfigurator
 {
+	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
+
 	/*
 	 * Constructs a new ParticleJSPageConfigurator
 	 */
 	public ParticleJSPageConfigurator()
 	{
 		//Nothing needed
+	}
+
+	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return ParticleJSPageConfigurator.enabled;
+	}
+
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable
+	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		ParticleJSPageConfigurator.enabled = mustEnable;
 	}
 
 	@NotNull
@@ -67,5 +97,11 @@ public class ParticleJSPageConfigurator
 			    .addJavaScriptReference(ParticleJSReferencePool.ParticlesJS.getJavaScriptReference());
 		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return ParticleJSPageConfigurator.enabled;
 	}
 }
