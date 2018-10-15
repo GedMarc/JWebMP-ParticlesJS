@@ -24,7 +24,7 @@ import javax.validation.constraints.NotNull;
 
 @ComponentInformation(name = "ParticlesJS",
 		description = "A lightweight JavaScript library for creating particles http://vincentgarreau.com/particles.js/",
-		url = "https://github.com/GedMarc/JWebSwing-ParticlesJS")
+		url = "https://github.com/GedMarc/JWebMP-ParticlesJS")
 public class ParticlesJS<J extends ParticlesJS<J>>
 		extends DivSimple<J>
 {

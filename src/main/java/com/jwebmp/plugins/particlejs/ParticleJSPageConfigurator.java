@@ -36,8 +36,8 @@ import javax.validation.constraints.NotNull;
 		pluginCategories = "graphics,particlejs,ui,web ui, framework",
 		pluginSubtitle = "A lightweight JavaScript library for creating particles.",
 		pluginSourceUrl = "http://vincentgarreau.com/particles.js/",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-ParticlesJS/wiki",
-		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-ParticlesJS",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-ParticlesJS/wiki",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-ParticlesJS",
 		pluginIconUrl = "",
 		pluginIconImageUrl = "",
 		pluginOriginalHomepage = "http://vincentgarreau.com/particles.js/",
@@ -46,7 +46,7 @@ import javax.validation.constraints.NotNull;
 		description = "A lightweight JavaScript library for creating particles.",
 		url = "http://vincentgarreau.com/particles.js/")
 public class ParticleJSPageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<ParticleJSPageConfigurator>
 {
 	/**
 	 * If this configurator is enabled
