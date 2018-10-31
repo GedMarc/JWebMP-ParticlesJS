@@ -44,7 +44,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class InteractivityEventOnClickOptions<J extends InteractivityEventOnClickOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * The mode to be applied

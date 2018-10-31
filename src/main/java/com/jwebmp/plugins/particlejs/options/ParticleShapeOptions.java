@@ -44,7 +44,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleShapeOptions<J extends ParticleShapeOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	private ParticleShapeTypes type;
 

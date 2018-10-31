@@ -44,7 +44,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class InteractivityModesOptions<J extends InteractivityModesOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	private InteractivityModesGrabOptions grab;
 	private InteractivityModesBubbleOptions bubble;

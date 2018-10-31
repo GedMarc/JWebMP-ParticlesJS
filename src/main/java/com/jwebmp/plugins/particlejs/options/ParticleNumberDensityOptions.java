@@ -43,7 +43,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleNumberDensityOptions<J extends ParticleNumberDensityOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	private Boolean enable;
 	@JsonProperty("value_area")

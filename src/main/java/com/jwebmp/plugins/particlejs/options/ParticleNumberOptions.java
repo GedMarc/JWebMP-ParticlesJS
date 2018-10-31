@@ -44,7 +44,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleNumberOptions<J extends ParticleNumberOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * The number of particles

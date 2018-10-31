@@ -43,7 +43,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleColourOptions<J extends ParticleColourOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * The colour value
@@ -66,6 +66,24 @@ public class ParticleColourOptions<J extends ParticleColourOptions<J>>
 	public ColourCSSImpl getValue()
 	{
 		return value;
+	}
+
+	/**
+	 * Sets the colour
+	 *
+	 * @param value
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public J setValue(ColourRGBA value)
+	{
+		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue())
+		                                                   .setGreen(value.Green())
+		                                                   .setRed(value.Red())
+		                                                   .setAlpha(value.Alpha())
+		                                                   .toString());
+		return (J) this;
 	}
 
 	/**
@@ -124,24 +142,6 @@ public class ParticleColourOptions<J extends ParticleColourOptions<J>>
 		                                                  .setGreen(value.Green())
 		                                                  .setRed(value.Red())
 		                                                  .toString());
-		return (J) this;
-	}
-
-	/**
-	 * Sets the colour
-	 *
-	 * @param value
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public J setValue(ColourRGBA value)
-	{
-		this.value = new ColourCSSImpl(new ColourRGBAImpl().setBlue(value.Blue())
-		                                                   .setGreen(value.Green())
-		                                                   .setRed(value.Red())
-		                                                   .setAlpha(value.Alpha())
-		                                                   .toString());
 		return (J) this;
 	}
 }

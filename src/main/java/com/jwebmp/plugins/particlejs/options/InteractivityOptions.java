@@ -45,7 +45,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class InteractivityOptions<J extends InteractivityOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 	@JsonProperty("detect_on")
 	private InteractivityDetectOn detectOn;
 	/**

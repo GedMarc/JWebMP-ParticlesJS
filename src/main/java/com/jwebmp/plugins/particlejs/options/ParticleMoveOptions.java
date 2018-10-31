@@ -45,7 +45,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleMoveOptions<J extends ParticleMoveOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	private Boolean enable;
 	private Integer speed;

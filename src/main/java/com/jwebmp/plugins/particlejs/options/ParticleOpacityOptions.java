@@ -45,7 +45,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleOpacityOptions<J extends ParticleOpacityOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The given value
 	 */

@@ -44,7 +44,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleLineLinkedOptions<J extends ParticleLineLinkedOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Enabled
 	 */

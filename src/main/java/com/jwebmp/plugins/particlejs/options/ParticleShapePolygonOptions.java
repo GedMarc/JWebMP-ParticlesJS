@@ -43,7 +43,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleShapePolygonOptions<J extends ParticleShapePolygonOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	@JsonProperty("nb_sides")
 	private Integer sides;

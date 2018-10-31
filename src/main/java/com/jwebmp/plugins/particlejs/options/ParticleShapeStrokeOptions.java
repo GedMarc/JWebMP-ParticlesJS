@@ -43,7 +43,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticleShapeStrokeOptions<J extends ParticleShapeStrokeOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The width to display
 	 */

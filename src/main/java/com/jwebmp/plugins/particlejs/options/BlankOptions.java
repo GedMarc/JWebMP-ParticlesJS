@@ -42,7 +42,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class BlankOptions<J extends BlankOptions<J>>
 		extends JavaScriptPart<J>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * Constructs a new options container for particles js
