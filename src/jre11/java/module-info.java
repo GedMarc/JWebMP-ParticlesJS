@@ -1,9 +1,3 @@
-import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.plugins.particlejs.ParticleJSPageConfigurator;
-import com.jwebmp.plugins.particlejs.implementations.ParticlesExclusionsModule;
-
 module com.jwebmp.plugins.particlejs {
 
 	exports com.jwebmp.plugins.particlejs;
@@ -20,9 +14,9 @@ module com.jwebmp.plugins.particlejs {
 	requires com.jwebmp.guicedinjection;
 	requires com.fasterxml.jackson.databind;
 
-	provides IPageConfigurator with ParticleJSPageConfigurator;
-	provides IGuiceScanModuleExclusions with ParticlesExclusionsModule;
-	provides IGuiceScanJarExclusions with ParticlesExclusionsModule;
+	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.particlejs.ParticleJSPageConfigurator;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.particlejs.implementations.ParticlesExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.particlejs.implementations.ParticlesExclusionsModule;
 
 	opens com.jwebmp.plugins.particlejs to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.particlejs.options to com.fasterxml.jackson.databind, com.jwebmp.core;
