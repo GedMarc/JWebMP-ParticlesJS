@@ -19,7 +19,7 @@ package com.jwebmp.plugins.particlejs.themes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jwebmp.core.FileTemplates;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.plugins.particlejs.ParticlesJSOptions;
 
 import javax.validation.constraints.NotNull;
