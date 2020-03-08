@@ -16,7 +16,6 @@ module com.jwebmp.plugins.particlejs {
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.particlejs.ParticleJSPageConfigurator;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.particlejs.implementations.ParticlesExclusionsModule;
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.particlejs.implementations.ParticlesExclusionsModule;
 
 	opens com.jwebmp.plugins.particlejs to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.particlejs.options to com.fasterxml.jackson.databind, com.jwebmp.core;
