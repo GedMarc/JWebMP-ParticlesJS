@@ -20,6 +20,9 @@ package com.jwebmp.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.jwebmp.core.utilities.StaticStrings;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DASH;
+import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
+
 /**
  * The movement direction
  */
@@ -40,6 +43,6 @@ public enum ParticleMoveDirection
 	public String toString()
 	{
 		return super.toString()
-		            .replace(StaticStrings.CHAR_UNDERSCORE, StaticStrings.CHAR_DASH);
+		            .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

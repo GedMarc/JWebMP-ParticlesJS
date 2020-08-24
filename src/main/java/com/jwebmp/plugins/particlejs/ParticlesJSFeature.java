@@ -22,6 +22,8 @@ import com.jwebmp.core.utilities.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
  *
@@ -66,7 +68,7 @@ public class ParticlesJSFeature
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = "particlesJS('" + getComponent().getID() + "'," + getOptions() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
+		String requiredString = "particlesJS('" + getComponent().getID() + "'," + getOptions() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
 		addQuery(requiredString);
 	}
 }
