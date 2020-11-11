@@ -24,7 +24,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.particlejs.options.InteractivityOptions;
 import com.jwebmp.plugins.particlejs.options.ParticleOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.*;
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;

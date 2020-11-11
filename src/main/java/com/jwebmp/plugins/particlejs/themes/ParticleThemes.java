@@ -22,7 +22,7 @@ import com.jwebmp.core.FileTemplates;
 import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.plugins.particlejs.ParticlesJSOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.io.IOException;
 
 public enum ParticleThemes

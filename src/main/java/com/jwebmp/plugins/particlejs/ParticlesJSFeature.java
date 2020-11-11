@@ -20,7 +20,7 @@ import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.utilities.StaticStrings;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 

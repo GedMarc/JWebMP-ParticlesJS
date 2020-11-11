@@ -20,7 +20,7 @@ package com.jwebmp.plugins.particlejs;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.plugins.ComponentInformation;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @ComponentInformation(name = "ParticlesJS",
 		description = "A lightweight JavaScript library for creating particles http://vincentgarreau.com/particles.js/",
