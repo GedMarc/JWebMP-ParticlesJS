@@ -18,6 +18,7 @@ package com.jwebmp.plugins.particlejs;
 
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.utilities.StaticStrings;
 
 import jakarta.validation.constraints.NotNull;
@@ -32,22 +33,22 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRA
  * @since 2013/01/16
  */
 public class ParticlesJSFeature
-		extends Feature<ParticlesJSFeature, ParticlesJSOptions, ParticlesJSFeature>
+		extends Feature<ParticlesJSFeature, ParticlesJSOptions<?>, ParticlesJSFeature>
 {
-
-
+	
+	
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
 	 *
 	 * @param forComponent
 	 */
-	public ParticlesJSFeature(Component forComponent)
+	public ParticlesJSFeature(IComponentHierarchyBase<?, ?> forComponent)
 	{
 		super("ParticlesJS");
 		setComponent(forComponent);
 	}
-
+	
 	/**
 	 * Returns all the tooltip options
 	 * <p>
@@ -56,19 +57,20 @@ public class ParticlesJSFeature
 	 */
 	@Override
 	@NotNull
-	public ParticlesJSOptions getOptions()
+	public ParticlesJSOptions<?> getOptions()
 	{
 		if (super.getOptions() == null)
 		{
-			super.setOptions(new ParticlesJSOptions());
+			super.setOptions(new ParticlesJSOptions<>());
 		}
 		return super.getOptions();
 	}
-
+	
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = "particlesJS('" + getComponent().getID() + "'," + getOptions() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
+		String requiredString = "particlesJS('" + getComponent().asBase()
+		                                                        .getID() + "'," + getOptions() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine();
 		addQuery(requiredString);
 	}
 }

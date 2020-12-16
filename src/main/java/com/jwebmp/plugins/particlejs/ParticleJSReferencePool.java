@@ -14,7 +14,7 @@ import com.jwebmp.core.base.servlets.interfaces.ReferencePool;
 public enum ParticleJSReferencePool
 		implements ReferencePool
 {
-	ParticlesJS(new JavascriptReference("ParticlesJS", 1.6, "bower_components/particles.js/particles.min.js", RequirementsPriority.Top_Shelf), null);
+	ParticlesJS(new JavascriptReference("ParticlesJS", 2.0, "bower_components/particles.js/particles.min.js", RequirementsPriority.Top_Shelf), null);
 	/**
 	 * Any sub data
 	 */

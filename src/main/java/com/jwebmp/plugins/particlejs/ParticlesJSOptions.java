@@ -47,8 +47,6 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 public class ParticlesJSOptions<J extends ParticlesJSOptions<J>>
 		extends JavaScriptPart<J>
 {
-
-
 	private ParticleOptions particles;
 	private InteractivityOptions interactivity;
 	@JsonProperty("retina_detect")

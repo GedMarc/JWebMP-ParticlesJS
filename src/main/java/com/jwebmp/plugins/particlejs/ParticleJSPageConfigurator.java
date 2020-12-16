@@ -20,6 +20,7 @@ package com.jwebmp.plugins.particlejs;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 
@@ -31,17 +32,24 @@ import jakarta.validation.constraints.NotNull;
  */
 @PluginInformation(pluginName = "Particle JS",
 		pluginDescription = "The ParticleJS library ",
-		pluginUniqueName = "jwebswing-particlejs",
-		pluginVersion = "1.6.4",
+		pluginUniqueName = "particlejs",
+		pluginVersion = "2.0.0",
 		pluginCategories = "graphics,particlejs,ui,web ui, framework",
 		pluginSubtitle = "A lightweight JavaScript library for creating particles.",
-		pluginSourceUrl = "http://vincentgarreau.com/particles.js/",
+		pluginSourceUrl = "https://github.com/VincentGarreau/particles.js/",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-ParticlesJS/wiki",
 		pluginGitUrl = "https://github.com/GedMarc/JWebMP-ParticlesJS",
 		pluginIconUrl = "",
 		pluginIconImageUrl = "",
 		pluginOriginalHomepage = "http://vincentgarreau.com/particles.js/",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/ParticleJS.jar/download")
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-particlesjs",
+		pluginGroupId = "com.jwebmp.plugins.javascript",
+		pluginArtifactId = "jwebmp-particlesjs",
+		pluginModuleName = "com.jwebmp.plugins.particlejs",
+		pluginStatus = PluginStatus.Released,
+		pluginLastUpdatedDate = "2020/12/14"
+)
+
 @ComponentInformation(name = "Particle JS",
 		description = "A lightweight JavaScript library for creating particles.",
 		url = "http://vincentgarreau.com/particles.js/")
