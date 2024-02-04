@@ -23,7 +23,7 @@ import com.jwebmp.core.utilities.StaticStrings;
 
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents

@@ -7,7 +7,7 @@ module com.jwebmp.plugins.particlejs {
 	exports com.jwebmp.plugins.particlejs.themes;
 
 	requires com.jwebmp.core;
-	requires com.guicedee.logmaster;
+	
 
 	requires jakarta.validation;
 	requires java.logging;

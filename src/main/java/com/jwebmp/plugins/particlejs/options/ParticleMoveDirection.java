@@ -20,8 +20,8 @@ package com.jwebmp.plugins.particlejs.options;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.jwebmp.core.utilities.StaticStrings;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DASH;
-import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_DASH;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_UNDERSCORE;
 
 /**
  * The movement direction
